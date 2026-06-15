@@ -1,2 +1,254 @@
-<h1>Hello, I'm Azwar</h1>
-<p>This is my portfolio website</p>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azwar Waqar | AI Portfolio</title>
+
+<style>
+:root {
+  --bg1: #0f2027;
+  --bg2: #203a43;
+  --bg3: #2c5364;
+  --text: #ffffff;
+  --card: rgba(255,255,255,0.08);
+  --accent: #00ffd5;
+}
+
+body.light {
+  --bg1: #e0eafc;
+  --bg2: #cfdef3;
+  --bg3: #ffffff;
+  --text: #111;
+  --card: rgba(0,0,0,0.05);
+  --accent: #0077ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3));
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  color: var(--text);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.2);
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--accent);
+  color: black;
+  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.toggle {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
+}
+
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleTheme()">🌗 Theme</button>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#exp">Experience</a>
+  <a href="#edu">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+  <h1>Azwar Waqar</h1>
+  <p>AI/ML Engineer • Freelancer • Builder of Intelligent Systems</p>
+  <button onclick="downloadCV()">Download Resume</button>
+</div>
+
+<section id="about" class="hidden">
+  <h2>About Me</h2>
+  <div class="card">
+    Passionate AI Engineer focused on Machine Learning, Automation, and real-world intelligent systems.
+  </div>
+</section>
+
+<section id="exp" class="hidden">
+  <h2>Experience</h2>
+  <div class="card">
+    Freelancing & Personal AI Projects<br>
+    • Android Apps<br>
+    • ML Models<br>
+    • Automation Tools
+  </div>
+</section>
+
+<section id="edu" class="hidden">
+  <h2>Education</h2>
+  <div class="card">
+    Superior University<br>
+    BS Artificial Intelligence
+  </div>
+</section>
+
+<section id="projects" class="hidden">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">Expense Tracker App</div>
+    <div class="card">AI Chatbot (NLP)</div>
+    <div class="card">Weather Forecast App</div>
+  </div>
+</section>
+
+<section id="contact" class="hidden">
+  <h2>Contact</h2>
+  <div class="card">
+    Email: azwarwaqar@gmail.com<br>
+    Available for freelance work
+  </div>
+</section>
+
+<footer>
+  © 2026 Azwar Waqar • Built with modern web tech
+</footer>
+
+<script>
+// Theme toggle
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+
+// Resume download
+function downloadCV() {
+  alert("Add your PDF file in repo as resume.pdf");
+}
+
+// Scroll animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
