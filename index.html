@@ -1,254 +1,257 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azwar Waqar | AI Portfolio</title>
-
-<style>
-:root {
-  --bg1: #0f2027;
-  --bg2: #203a43;
-  --bg3: #2c5364;
-  --text: #ffffff;
-  --card: rgba(255,255,255,0.08);
-  --accent: #00ffd5;
-}
-
-body.light {
-  --bg1: #e0eafc;
-  --bg2: #cfdef3;
-  --bg3: #ffffff;
-  --text: #111;
-  --card: rgba(0,0,0,0.05);
-  --accent: #0077ff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-body {
-  background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3));
-  background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
-  color: var(--text);
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-@keyframes gradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.2);
-}
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  animation: fadeUp 1.5s ease;
-}
-
-.hero p {
-  margin-top: 10px;
-  opacity: 0.8;
-}
-
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-h2 {
-  color: var(--accent);
-  margin-bottom: 20px;
-}
-
-.card {
-  background: var(--card);
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 15px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: var(--accent);
-  color: black;
-  font-weight: bold;
-  margin: 10px;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.toggle {
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  z-index: 1000;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  opacity: 0.7;
-}
-
-@keyframes fadeUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.hidden {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azwar Waqar | AI Engineer & Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#38bdf8',
+                            DEFAULT: '#0ea5e9',
+                            dark: '#0284c7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-nav { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); }
+        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4); }
+    </style>
 </head>
+<body class="antialiased selection:bg-brand selection:text-white">
 
-<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-xl font-bold tracking-tighter text-brand-light">AW.</a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#experience" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Experience</a>
+                        <a href="#projects" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Projects</a>
+                    </div>
+                </div>
+                <a href="./assets/Azwar_Waqar_CV.pdf" download class="bg-brand hover:bg-brand-light text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-300 shadow-lg shadow-brand/30">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </nav>
 
-<button class="toggle" onclick="toggleTheme()">🌗 Theme</button>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[80vh]">
+        <div class="md:w-3/5 space-y-6 z-10 text-center md:text-left">
+            <h2 class="text-brand-light font-mono tracking-wide">Hi, my name is</h2>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Azwar Waqar.</h1>
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-400">I build intelligent systems.</h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+                AI Engineer & Data Analyst specializing in scalable data pipelines, predictive models, and backend architecture. I bridge the gap between complex AI research and functional software utilities.
+            </p>
+            <div class="flex justify-center md:justify-start space-x-6 pt-4">
+                <a href="https://github.com/azwar-ml" target="_blank" class="text-slate-400 hover:text-white text-3xl transition transform hover:scale-110"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/azwarmalhi" target="_blank" class="text-slate-400 hover:text-[#0a66c2] text-3xl transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:azwarwaqar@gmail.com" class="text-slate-400 hover:text-brand-light text-3xl transition transform hover:scale-110"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="md:w-2/5 mt-12 md:mt-0 flex justify-center">
+            <!-- Replace src with your LinkedIn image URL -->
+            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-dark p-2 shadow-2xl shadow-brand/20">
+                <img src="https://ui-avatars.com/api/?name=Azwar+Waqar&size=512&background=0284c7&color=fff" alt="Azwar Waqar" class="rounded-full w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#exp">Experience</a>
-  <a href="#edu">Education</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 flex items-center">
+                <span class="text-brand font-mono text-xl mr-3">01.</span> About Me
+                <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+            </h2>
+            <div class="text-slate-300 space-y-4 text-lg leading-relaxed">
+                <p>
+                    I am driven to solve real-world problems through data-centric AI and scalable backend systems. With hands-on development experience across a diverse portfolio of machine learning systems, automated pipelines, and client-facing products, I engineer production-grade applications.
+                </p>
+                <p>
+                    My expertise lies in designing secure APIs, deploying containerized backend architectures, and utilizing modern RAG architecture concepts. I actively build automated data pipelines and robust predictive models that process structured data securely and efficiently.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<div class="hero">
-  <h1>Azwar Waqar</h1>
-  <p>AI/ML Engineer • Freelancer • Builder of Intelligent Systems</p>
-  <button onclick="downloadCV()">Download Resume</button>
-</div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+            <span class="text-brand font-mono text-xl mr-3">02.</span> Technical Skills
+            <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Skill Category -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
+                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-brain text-brand mr-2"></i> AI & Data Science</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Python</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Pandas/NumPy</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">OpenCV</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">RAG & LLMs</span>
+                </div>
+            </div>
+            <!-- Skill Category -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
+                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-server text-brand mr-2"></i> Backend & Cloud</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">FastAPI</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Node.js</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Docker</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">RESTful APIs</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Prisma ORM</span>
+                </div>
+            </div>
+            <!-- Skill Category -->
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
+                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-code text-brand mr-2"></i> Frontend & Tools</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">React</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Next.js</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">JavaScript</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Git/GitHub</span>
+                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">n8n Automation</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="hidden">
-  <h2>About Me</h2>
-  <div class="card">
-    Passionate AI Engineer focused on Machine Learning, Automation, and real-world intelligent systems.
-  </div>
-</section>
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="text-brand font-mono text-xl mr-3">03.</span> Work History
+                <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+            </h2>
+            
+            <div class="space-y-12 border-l-2 border-slate-700 pl-6 ml-4">
+                <!-- Job 1 -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-brand bg-slate-900"></div>
+                    <h3 class="text-2xl font-bold text-white">Full Stack Developer <span class="text-brand">@ Dezital</span></h3>
+                    <p class="text-slate-400 font-mono text-sm mb-4">Feb 2025 – Jul 2025</p>
+                    <ul class="list-disc text-slate-300 ml-4 space-y-2">
+                        <li>Developed interactive analytics UI layouts and optimized asynchronous frontend-to-backend rendering loops for low-latency state delivery.</li>
+                        <li>Implemented user telemetry loops to analyze UI drop-offs and iteratively enhance API data transmission efficiency.</li>
+                    </ul>
+                </div>
 
-<section id="exp" class="hidden">
-  <h2>Experience</h2>
-  <div class="card">
-    Freelancing & Personal AI Projects<br>
-    • Android Apps<br>
-    • ML Models<br>
-    • Automation Tools
-  </div>
-</section>
+                <!-- Job 2 -->
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-brand bg-slate-900"></div>
+                    <h3 class="text-2xl font-bold text-white">AI & Backend Developer <span class="text-brand">@ Freelance</span></h3>
+                    <p class="text-slate-400 font-mono text-sm mb-4">2024 – Present</p>
+                    <ul class="list-disc text-slate-300 ml-4 space-y-2">
+                        <li>Engineered end-to-end automated agency operations infrastructure utilizing n8n pipelines for multi-source data ingestion.</li>
+                        <li>Designed scale-optimized relational schemas using PostgreSQL and Prisma ORM to process high-concurrency analytics.</li>
+                        <li>Developed modular Python backends and FastAPI configurations encapsulated in Docker for isolated ML inferences.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="edu" class="hidden">
-  <h2>Education</h2>
-  <div class="card">
-    Superior University<br>
-    BS Artificial Intelligence
-  </div>
-</section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+            <span class="text-brand font-mono text-xl mr-3">04.</span> Featured Projects
+            <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-chart-line text-4xl text-brand"></i>
+                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">KMI30 Stock Exchange Pipeline</h3>
+                <p class="text-slate-300 mb-6 flex-grow">
+                    Architected a scalable market ingestion pipeline extracting ticker performance metrics. Integrated IMF reports and news via APIs to perform multi-dimensional market sentiment analysis.
+                </p>
+                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
+                    <span>Python</span> <span>Pandas</span> <span>PostgreSQL</span> <span>NumPy</span>
+                </div>
+            </div>
 
-<section id="projects" class="hidden">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">Expense Tracker App</div>
-    <div class="card">AI Chatbot (NLP)</div>
-    <div class="card">Weather Forecast App</div>
-  </div>
-</section>
+            <!-- Project 2 -->
+            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-robot text-4xl text-brand"></i>
+                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">Gen AI Multi-Modal Platform</h3>
+                <p class="text-slate-300 mb-6 flex-grow">
+                    Designed a full-stack text-and-image synthesis application leveraging RAG architecture. Enforced stateless session controls and API rate limiting to manage token usage securely.
+                </p>
+                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
+                    <span>Next.js</span> <span>Node.js</span> <span>OpenAI API</span> <span>RAG</span>
+                </div>
+            </div>
 
-<section id="contact" class="hidden">
-  <h2>Contact</h2>
-  <div class="card">
-    Email: azwarwaqar@gmail.com<br>
-    Available for freelance work
-  </div>
-</section>
+            <!-- Project 3 -->
+            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-network-wired text-4xl text-brand"></i>
+                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">FinLens Server Automation</h3>
+                <p class="text-slate-300 mb-6 flex-grow">
+                    Built an autonomous alerting engine that parses streaming financial data and pushes real-time market shifts. Structured resilient webhook handlers inside Docker containers.
+                </p>
+                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
+                    <span>Python</span> <span>Docker</span> <span>n8n</span> <span>Discord API</span>
+                </div>
+            </div>
 
-<footer>
-  © 2026 Azwar Waqar • Built with modern web tech
-</footer>
+            <!-- Project 4 -->
+            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-eye text-4xl text-brand"></i>
+                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">CV Real-Time State Controller</h3>
+                <p class="text-slate-300 mb-6 flex-grow">
+                    Optimized an edge computer vision pipeline for real-time spatial mapping and hand coordinate tracking. Mapped hand distances to OS registries to dynamically adjust display attributes.
+                </p>
+                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
+                    <span>Python</span> <span>OpenCV</span> <span>MediaPipe</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-// Theme toggle
-function toggleTheme() {
-  document.body.classList.toggle("light");
-}
-
-// Resume download
-function downloadCV() {
-  alert("Add your PDF file in repo as resume.pdf");
-}
-
-// Scroll animation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
-</script>
+    <!-- Footer / Contact -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">Let's Connect</h2>
+        <p class="text-slate-400 max-w-md mx-auto mb-8">Currently available for freelance opportunities or full-time roles in data-centric backend and AI engineering.</p>
+        <a href="mailto:azwarwaqar@gmail.com" class="inline-block border border-brand text-brand hover:bg-brand/10 px-8 py-3 rounded text-lg font-mono transition">Say Hello</a>
+        
+        <div class="mt-12 text-slate-500 text-sm font-mono flex flex-col items-center">
+            <p class="mb-2">Built with <i class="fab fa-html5"></i> & Tailwind CSS</p>
+            <p>&copy; 2026 Azwar Waqar</p>
+        </div>
+    </footer>
 
 </body>
 </html>
