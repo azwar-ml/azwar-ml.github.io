@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVE2D8WRCJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-RVE2D8WRCJ');
     </script>
 
@@ -16,44 +16,92 @@
     
     <link rel="icon" type="image/png" href="./favicon.png">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
                     colors: {
                         brand: {
                             light: '#38bdf8',
                             DEFAULT: '#0ea5e9',
                             dark: '#0284c7',
+                            accent: '#10b981'
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#171717',
+                            700: '#262626'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         }
                     }
                 }
             }
         }
     </script>
-</head>
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-        .glass-nav { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); }
-        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4); }
+        body { 
+            background-color: #0a0a0a; 
+            color: #f8fafc; 
+            overflow-x: hidden;
+        }
+        .glass-nav { 
+            background: rgba(10, 10, 10, 0.85); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .project-card { 
+            background: linear-gradient(145deg, #171717 0%, #0f0f0f 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .project-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.2); 
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+        .timeline-dot {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
     </style>
 
-    <!-- ====== PASTE THE CODE HERE (RIGHT BEFORE THE CLOSING HEAD TAG) ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Azwar Malhi",
-      "alternateName": [
-        "Azwar Waqar", 
-        "Azwar Waqar Malhi"
-      ],
-      "jobTitle": "AI Engineer",
-      "description": "AI Engineer specializing in Machine Learning, Data Science, and Python.",
+      "name": "Azwar Waqar",
+      "jobTitle": "AI Engineer & Backend Developer",
+      "description": "AI Engineer specializing in Machine Learning, Data Science, Scalable Architectures, and Python.",
       "url": "https://azwarwaqar.me",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressCountry": "Pakistan"
+      },
       "sameAs": [
         "https://pk.linkedin.com/in/azwarmalhi",
         "https://github.com/azwar-ml"
@@ -66,224 +114,348 @@
         "Artificial Intelligence", 
         "Machine Learning", 
         "Data Science", 
-        "Python"
+        "Python",
+        "Generative AI",
+        "Backend Architecture"
       ]
     }
     </script>
-    <!-- =================================================================== -->
-
 </head>
-<body class="antialiased selection:bg-brand selection:text-white">
+<body class="antialiased selection:bg-brand selection:text-white relative">
+
+    <!-- Background Glow Effect -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand/20 blur-[120px] rounded-full pointer-events-none -z-10 animate-pulse-slow"></div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <a href="#" class="text-xl font-bold tracking-tighter text-brand-light">AW.</a>
+                <a href="#" class="text-2xl font-black tracking-tighter text-white hover:text-brand transition duration-300">
+                    A<span class="text-brand">W</span>.
+                </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#about" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">About</a>
-                        <a href="#skills" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Skills</a>
-                        <a href="#experience" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Experience</a>
-                        <a href="#projects" class="hover:text-brand-light transition px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#about" class="text-gray-300 hover:text-brand transition px-3 py-2 text-sm font-mono tracking-wide"><span class="text-brand mr-1">01.</span>About</a>
+                        <a href="#skills" class="text-gray-300 hover:text-brand transition px-3 py-2 text-sm font-mono tracking-wide"><span class="text-brand mr-1">02.</span>Skills</a>
+                        <a href="#experience" class="text-gray-300 hover:text-brand transition px-3 py-2 text-sm font-mono tracking-wide"><span class="text-brand mr-1">03.</span>Experience</a>
+                        <a href="#projects" class="text-gray-300 hover:text-brand transition px-3 py-2 text-sm font-mono tracking-wide"><span class="text-brand mr-1">04.</span>Projects</a>
                     </div>
                 </div>
-              <a href="./Azwar_CV.pdf" download class="bg-brand hover:bg-brand-light text-white px-4 py-2 rounded-lg text-sm font-semibold transition duration-300 shadow-lg shadow-brand/30">
-                    <i class="fas fa-download mr-2"></i> Download CV
+              <a href="./Azwar_CV.pdf" download class="group relative px-5 py-2.5 font-mono text-sm font-semibold text-brand border border-brand rounded hover:bg-brand/10 transition-all duration-300 overflow-hidden">
+                    <span class="relative z-10"><i class="fas fa-file-pdf mr-2"></i>Resume</span>
                 </a>
             </div>
         </div>
     </nav>
+
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-[80vh]">
-        <div class="md:w-3/5 space-y-6 z-10 text-center md:text-left">
-            <h2 class="text-brand-light font-mono tracking-wide">Hi, my name is</h2>
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">Azwar Waqar.</h1>
-            <h1 class="text-4xl md:text-6xl font-bold text-slate-400">I build intelligent systems.</h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
-                AI Engineer & Data Analyst specializing in scalable data pipelines, predictive models, and backend architecture. I bridge the gap between complex AI research and functional software utilities.
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between min-h-screen opacity-0 animate-fade-in-up">
+        <div class="md:w-3/5 space-y-6 z-10 text-center md:text-left mt-10 md:mt-0">
+            <p class="text-brand font-mono tracking-wider text-lg">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight drop-shadow-lg">Azwar Waqar.</h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-gray-400 tracking-tight">I build intelligent systems.</h2>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed pt-4">
+                I am a Lahore-based AI Engineer and Backend Developer specializing in scalable data pipelines, predictive models, and autonomous architectures. I bridge the gap between complex AI research and functional software utilities.
             </p>
-            <div class="flex justify-center md:justify-start space-x-6 pt-4">
-                <a href="https://github.com/azwar-ml" target="_blank" class="text-slate-400 hover:text-white text-3xl transition transform hover:scale-110"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/azwarmalhi" target="_blank" class="text-slate-400 hover:text-[#0a66c2] text-3xl transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:azwarwaqar@gmail.com" class="text-slate-400 hover:text-brand-light text-3xl transition transform hover:scale-110"><i class="fas fa-envelope"></i></a>
+            <div class="flex justify-center md:justify-start space-x-6 pt-8">
+                <a href="https://github.com/azwar-ml" target="_blank" class="text-gray-400 hover:text-brand text-3xl transition-all transform hover:-translate-y-1"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/azwarmalhi" target="_blank" class="text-gray-400 hover:text-brand text-3xl transition-all transform hover:-translate-y-1"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:azwarwaqar@gmail.com" class="text-gray-400 hover:text-brand text-3xl transition-all transform hover:-translate-y-1"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="md:w-2/5 mt-12 md:mt-0 flex justify-center">
-            <!-- Replace src with your LinkedIn image URL -->
-            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-brand-dark p-2 shadow-2xl shadow-brand/20">
-                <img src="https://ui-avatars.com/api/?name=Azwar+Waqar&size=512&background=0284c7&color=fff" alt="Azwar Waqar" class="rounded-full w-full h-full object-cover">
+        <div class="md:w-2/5 mt-16 md:mt-0 flex justify-center relative">
+            <div class="absolute inset-0 bg-brand/20 rounded-full blur-3xl scale-90"></div>
+            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-brand/50 p-2 shadow-[0_0_40px_rgba(14,165,233,0.3)] hover:scale-105 transition-transform duration-500 bg-dark-800">
+                <img src="https://ui-avatars.com/api/?name=Azwar+Waqar&size=512&background=0a0a0a&color=0ea5e9&bold=true" alt="Azwar Waqar" class="rounded-full w-full h-full object-cover border border-gray-800">
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-slate-800/50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-8 flex items-center">
-                <span class="text-brand font-mono text-xl mr-3">01.</span> About Me
-                <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+    <section id="about" class="py-24 bg-dark-800/50 border-y border-white/5 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-10 flex items-center">
+                <span class="text-brand font-mono text-xl md:text-2xl mr-4">01.</span> About Me
+                <div class="ml-6 h-px bg-gray-700 flex-grow"></div>
             </h2>
-            <div class="text-slate-300 space-y-4 text-lg leading-relaxed">
-                <p>
-                    I am driven to solve real-world problems through data-centric AI and scalable backend systems. With hands-on development experience across a diverse portfolio of machine learning systems, automated pipelines, and client-facing products, I engineer production-grade applications.
-                </p>
-                <p>
-                    My expertise lies in designing secure APIs, deploying containerized backend architectures, and utilizing modern RAG architecture concepts. I actively build automated data pipelines and robust predictive models that process structured data securely and efficiently.
-                </p>
+            <div class="grid md:grid-cols-2 gap-12 text-gray-300 text-lg leading-relaxed">
+                <div class="space-y-6">
+                    <p>
+                        Holding a completed Bachelor of Science degree in Artificial Intelligence from The Superior University, I am driven to solve real-world problems through data-centric AI and scalable backend architectures. 
+                    </p>
+                    <p>
+                        My expertise lies in designing secure APIs, deploying containerized backend systems, and utilizing modern RAG (Retrieval-Augmented Generation) concepts. I actively build autonomous data pipelines and robust predictive models that process structured data securely and efficiently.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <p>
+                        With hands-on development experience across a diverse portfolio of machine learning applications, quantitative market analytics, and client-facing generative AI agents, I engineer production-grade applications built for scale.
+                    </p>
+                    <div class="bg-dark-900 border border-gray-800 p-6 rounded-lg shadow-inner">
+                        <h4 class="text-white font-semibold mb-3 font-mono flex items-center"><i class="fas fa-bullseye text-brand mr-2"></i> Current Focus</h4>
+                        <p class="text-sm text-gray-400">Developing autonomous AI agents (LangGraph/Groq), engineering advanced RAG architectures, and pursuing fully funded graduate research opportunities in Artificial Intelligence abroad.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-            <span class="text-brand font-mono text-xl mr-3">02.</span> Technical Skills
-            <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+    <section id="skills" class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 flex items-center">
+            <span class="text-brand font-mono text-xl md:text-2xl mr-4">02.</span> Technical Arsenal
+            <div class="ml-6 h-px bg-gray-700 flex-grow"></div>
         </h2>
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Skill Category -->
-            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
-                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-brain text-brand mr-2"></i> AI & Data Science</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Python</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">TensorFlow</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Scikit-learn</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Pandas/NumPy</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">OpenCV</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">RAG & LLMs</span>
+            <!-- AI & Data Science -->
+            <div class="bg-dark-800 p-8 rounded-2xl border border-gray-800 hover:border-brand/50 transition-colors group">
+                <div class="bg-brand/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-brain text-2xl text-brand"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-6">AI & Machine Learning</h3>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">PyTorch</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">TensorFlow</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">LangChain</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">LangGraph</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">LlamaIndex</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Scikit-learn</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">OpenCV</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">HuggingFace</span>
                 </div>
             </div>
-            <!-- Skill Category -->
-            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
-                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-server text-brand mr-2"></i> Backend & Cloud</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">FastAPI</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Node.js</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Docker</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">RESTful APIs</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Prisma ORM</span>
+
+            <!-- Backend & Data -->
+            <div class="bg-dark-800 p-8 rounded-2xl border border-gray-800 hover:border-brand/50 transition-colors group">
+                <div class="bg-brand/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-server text-2xl text-brand"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-6">Backend & Data</h3>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Python</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">FastAPI</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Flask</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">NestJS</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">PostgreSQL</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">ChromaDB</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Supabase</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Prisma ORM</span>
                 </div>
             </div>
-            <!-- Skill Category -->
-            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-brand transition">
-                <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-code text-brand mr-2"></i> Frontend & Tools</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">React</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Next.js</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">JavaScript</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">Git/GitHub</span>
-                    <span class="bg-slate-900 text-brand-light px-3 py-1 rounded-full text-sm">n8n Automation</span>
+
+            <!-- Full-stack & DevOps -->
+            <div class="bg-dark-800 p-8 rounded-2xl border border-gray-800 hover:border-brand/50 transition-colors group">
+                <div class="bg-brand/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-layer-group text-2xl text-brand"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-6">Frontend & DevOps</h3>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Next.js</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">React</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Docker</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Vercel</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Git</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">n8n</span>
+                    <span class="bg-dark-900 border border-gray-700 text-gray-300 px-3 py-1.5 rounded text-sm font-mono hover:text-brand hover:border-brand transition">Streamlit</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-slate-800/50">
+    <section id="experience" class="py-24 bg-dark-800/30 border-y border-white/5 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="text-brand font-mono text-xl mr-3">03.</span> Work History
-                <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 flex items-center">
+                <span class="text-brand font-mono text-xl md:text-2xl mr-4">03.</span> Work Experience
+                <div class="ml-6 h-px bg-gray-700 flex-grow"></div>
             </h2>
             
-            <div class="space-y-12 border-l-2 border-slate-700 pl-6 ml-4">
+            <div class="space-y-12 border-l-2 border-gray-800 pl-6 md:pl-10 ml-4">
                 
-
                 <!-- Job 1 -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 h-4 w-4 rounded-full border-2 border-brand bg-slate-900"></div>
-                    <h3 class="text-2xl font-bold text-white">AI & Backend Developer <span class="text-brand">@ Freelance</span></h3>
-                    <p class="text-slate-400 font-mono text-sm mb-4">2024 – Present</p>
-                    <ul class="list-disc text-slate-300 ml-4 space-y-2">
-                        <li>Engineered end-to-end automated agency operations infrastructure utilizing n8n pipelines for multi-source data ingestion.</li>
-                        <li>Designed scale-optimized relational schemas using PostgreSQL and Prisma ORM to process high-concurrency analytics.</li>
-                        <li>Developed modular Python backends and FastAPI configurations encapsulated in Docker for isolated ML inferences.</li>
-                    </ul>
+                <div class="relative group">
+                    <div class="timeline-dot absolute -left-[35px] md:-left-[51px] top-1.5 h-4 w-4 rounded-full border-2 border-brand bg-dark-900 group-hover:bg-brand transition-colors duration-300"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-white">Generative AI Intern</h3>
+                        <span class="text-brand font-mono text-sm mt-1 md:mt-0 bg-brand/10 px-3 py-1 rounded">Jul 2026 – Aug 2026</span>
+                    </div>
+                    <h4 class="text-xl text-gray-400 mb-4 font-semibold">NCAI, KICS, UET Lahore</h4>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Extracted, cleaned, and processed complex unstructured datasets to build scalable data pipelines for machine learning applications. Applied machine learning techniques and vector databases (ChromaDB, BGE embeddings) to perform data mining and optimize information retrieval accuracy. Collaborated with cross-functional research teams to analyze specific data needs and deliver technical solutions that improve operational efficiency.
+                    </p>
+                    <div class="flex gap-3 font-mono text-xs text-brand">
+                        <span>#RAG</span> <span>#VectorDatabases</span> <span>#DataPipelines</span>
+                    </div>
                 </div>
+
+                <!-- Job 2 -->
+                <div class="relative group">
+                    <div class="timeline-dot absolute -left-[35px] md:-left-[51px] top-1.5 h-4 w-4 rounded-full border-2 border-gray-600 bg-dark-900 group-hover:border-brand group-hover:bg-brand/50 transition-colors duration-300"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-white">Associate AI Engineer</h3>
+                        <span class="text-gray-400 font-mono text-sm mt-1 md:mt-0">Nov 2025 – May 2026</span>
+                    </div>
+                    <h4 class="text-xl text-gray-400 mb-4 font-semibold">Dezital Technologies</h4>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Engineered data-driven backend systems and predictive models for outsourced client solutions using Python, Scikit-learn, and Pandas. Developed custom scripts to clean raw datasets, perform exploratory data analysis (EDA), and build scalable data pipelines. Established robust workflows that translated complex business requirements into high-performance AI applications, directly improving operational metrics.
+                    </p>
+                    <div class="flex gap-3 font-mono text-xs text-gray-500">
+                        <span>#Python</span> <span>#Scikit-learn</span> <span>#PredictiveModeling</span>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative group">
+                    <div class="timeline-dot absolute -left-[35px] md:-left-[51px] top-1.5 h-4 w-4 rounded-full border-2 border-gray-600 bg-dark-900 group-hover:border-brand group-hover:bg-brand/50 transition-colors duration-300"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 class="text-2xl font-bold text-white">AI & Backend Developer</h3>
+                        <span class="text-gray-400 font-mono text-sm mt-1 md:mt-0">2024 – Present</span>
+                    </div>
+                    <h4 class="text-xl text-gray-400 mb-4 font-semibold">Freelance</h4>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Engineered end-to-end automated operations infrastructure utilizing n8n pipelines for multi-source data ingestion. Designed scale-optimized relational schemas using PostgreSQL and Prisma ORM to process high-concurrency analytics. Developed modular Python backends and FastAPI configurations encapsulated in Docker for isolated ML inferences.
+                    </p>
+                    <div class="flex gap-3 font-mono text-xs text-gray-500">
+                        <span>#FastAPI</span> <span>#Docker</span> <span>#PostgreSQL</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-            <span class="text-brand font-mono text-xl mr-3">04.</span> Featured Projects
-            <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+    <section id="projects" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 flex items-center">
+            <span class="text-brand font-mono text-xl md:text-2xl mr-4">04.</span> Featured Projects
+            <div class="ml-6 h-px bg-gray-700 flex-grow"></div>
         </h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Project 1 -->
-            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Project 1: AI Equity Analyst -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
                 <div class="flex justify-between items-start mb-6">
-                    <i class="fas fa-chart-line text-4xl text-brand"></i>
-                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                    <i class="fas fa-chart-pie text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">KMI30 Stock Exchange Pipeline</h3>
-                <p class="text-slate-300 mb-6 flex-grow">
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">AI Equity Analyst Agent</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                    Autonomous quantitative equity analysis agent built for the Pakistan Stock Exchange. Utilizes LangGraph and Groq LLMs to process real-time market telemetry and execute complex financial reasoning.
+                </p>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">LangGraph</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">Groq LLM</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">Python</span>
+                </div>
+            </div>
+
+            <!-- Project 2: WorkSphere AI -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-users-cog text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">WorkSphere AI</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                    An intelligent workforce-management platform designed to manage attendance and granular task tracking for lab researchers. Built with a modern serverless stack for high availability.
+                </p>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">Next.js</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">Supabase</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">React</span>
+                </div>
+            </div>
+
+            <!-- Project 3: FSc Biology RAG -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-dna text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">Biology RAG System</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                    Multi-modal Class 11 Biology RAG engine built for NCAI. Features text and image retrieval capabilities utilizing advanced vector stores and Google's Gemini API for highly accurate academic querying.
+                </p>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">ChromaDB</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">Gemini API</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">BGE Embeddings</span>
+                </div>
+            </div>
+
+            <!-- Project 4: KMI30 -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
+                <div class="flex justify-between items-start mb-6">
+                    <i class="fas fa-chart-line text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">KMI-30 Data Analytics</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
                     Architected a scalable market ingestion pipeline extracting ticker performance metrics. Integrated IMF reports and news via APIs to perform multi-dimensional market sentiment analysis.
                 </p>
-                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
-                    <span>Python</span> <span>Pandas</span> <span>PostgreSQL</span> <span>NumPy</span>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">Next.js</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">Python</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">PostgreSQL</span>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+            <!-- Project 5: Interview Prep Agent -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
                 <div class="flex justify-between items-start mb-6">
-                    <i class="fas fa-robot text-4xl text-brand"></i>
-                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                    <i class="fas fa-user-tie text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">Gen AI Multi-Modal Platform</h3>
-                <p class="text-slate-300 mb-6 flex-grow">
-                    Designed a full-stack text-and-image synthesis application leveraging RAG architecture. Enforced stateless session controls and API rate limiting to manage token usage securely.
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">Gen AI Interview Agent</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                    Interactive Generative AI application engineered with a custom Retrieval-Augmented Generation architecture. Simulates dynamic technical interview environments and provides instant feedback.
                 </p>
-                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
-                    <span>Next.js</span> <span>Node.js</span> <span>OpenAI API</span> <span>RAG</span>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">Streamlit</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">RAG</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">LLMs</span>
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
+            <!-- Project 6: CV State Controller -->
+            <div class="project-card rounded-xl p-8 border border-gray-800 flex flex-col h-full group">
                 <div class="flex justify-between items-start mb-6">
-                    <i class="fas fa-network-wired text-4xl text-brand"></i>
-                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
+                    <i class="fas fa-hand-paper text-3xl text-brand"></i>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors"><i class="fab fa-github"></i></a>
                 </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">FinLens Server Automation</h3>
-                <p class="text-slate-300 mb-6 flex-grow">
-                    Built an autonomous alerting engine that parses streaming financial data and pushes real-time market shifts. Structured resilient webhook handlers inside Docker containers.
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition-colors">CV Gesture Controller</h3>
+                <p class="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+                    Optimized edge computer vision pipeline for real-time spatial mapping and hand coordinate tracking. Mapped hand distances to dynamically adjust OS display attributes (brightness/volume).
                 </p>
-                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
-                    <span>Python</span> <span>Docker</span> <span>n8n</span> <span>Discord API</span>
+                <div class="flex flex-wrap gap-2 font-mono text-xs text-brand">
+                    <span class="bg-dark-900 px-2 py-1 rounded">Python</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">OpenCV</span>
+                    <span class="bg-dark-900 px-2 py-1 rounded">MediaPipe</span>
                 </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="project-card bg-slate-800 rounded-xl p-8 border border-slate-700 flex flex-col h-full relative group overflow-hidden">
-                <div class="flex justify-between items-start mb-6">
-                    <i class="fas fa-eye text-4xl text-brand"></i>
-                    <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-github"></i></a>
-                </div>
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand transition">CV Real-Time State Controller</h3>
-                <p class="text-slate-300 mb-6 flex-grow">
-                    Optimized an edge computer vision pipeline for real-time spatial mapping and hand coordinate tracking. Mapped hand distances to OS registries to dynamically adjust display attributes.
-                </p>
-                <div class="flex flex-wrap gap-3 font-mono text-xs text-slate-400">
-                    <span>Python</span> <span>OpenCV</span> <span>MediaPipe</span>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- Footer / Contact -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12 text-center">
-        <h2 class="text-3xl font-bold text-white mb-6">Let's Connect</h2>
-        <p class="text-slate-400 max-w-md mx-auto mb-8">Currently available for freelance opportunities or full-time roles in data-centric backend and AI engineering.</p>
-        <a href="mailto:azwarwaqar@gmail.com" class="inline-block border border-brand text-brand hover:bg-brand/10 px-8 py-3 rounded text-lg font-mono transition">Say Hello</a>
-        
-        <div class="mt-12 text-slate-500 text-sm font-mono flex flex-col items-center">
-            <p class="mb-2">Built with <i class="fab fa-html5"></i> & Tailwind CSS</p>
-            <p>&copy; 2026 Azwar Waqar</p>
+    <footer class="bg-dark-900 border-t border-gray-800 py-16 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand/5 blur-[100px] z-0"></div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4">
+            <p class="text-brand font-mono mb-4 text-sm tracking-widest uppercase">What's Next?</p>
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Let's Connect</h2>
+            <p class="text-gray-400 mx-auto mb-10 text-lg">
+                Currently open for freelance opportunities, innovative research collaborations, or full-time roles in data-centric backend and AI engineering. Whether you have a question or just want to say hi, my inbox is always open!
+            </p>
+            <a href="mailto:azwarwaqar@gmail.com" class="inline-block border-2 border-brand text-brand hover:bg-brand hover:text-white px-10 py-4 rounded font-mono transition-all duration-300 shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.6)]">
+                Say Hello
+            </a>
+            
+            <div class="mt-20 text-gray-600 text-sm font-mono flex flex-col items-center">
+                <p class="mb-2">Engineered with <i class="fab fa-html5 text-gray-500 hover:text-brand transition"></i> & Tailwind CSS</p>
+                <p>&copy; 2026 Azwar Waqar. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
